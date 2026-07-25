@@ -10,9 +10,17 @@
     "test": "vitest run",
     "lint": "eslint .",
     "prettier-fix": "prettier --write .",
-    "prettier-check": "prettier --check ."
+    "prettier-check": "prettier --check .",
+    "cap:sync": "cap sync android",
+    "android:build": "pnpm build && cap sync android && cd android && ./gradlew assembleDebug",
+    "android:release": "pnpm build && cap sync android && cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
+    "@capacitor/android": "^7.6.8",
+    "@capacitor/app": "^7.1.2",
+    "@capacitor/core": "^7.6.8",
+    "@capacitor/splash-screen": "^7.0.5",
+    "@capacitor/status-bar": "^7.0.6",
     "@hookform/resolvers": "^5.4.0",
     "@mlc-ai/web-llm": "^0.2.84",
     "@tanstack/react-query": "^5.101.1",
@@ -48,6 +56,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@capacitor/cli": "^7.6.8",
     "@convex-dev/eslint-plugin": "^1.2.2",
     "@edge-runtime/vm": "^5.0.0",
     "@eslint/js": "^9.39.4",
